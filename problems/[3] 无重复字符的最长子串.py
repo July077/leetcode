@@ -69,3 +69,8 @@ class Solution(object):
 
         return answer
         # leetcode submit region end(Prohibit modification and deletion)
+
+
+if __name__ == '__main__':
+    solution = Solution().lengthOfLongestSubstring('abcabcbb')
+    print(solution)
