@@ -24,6 +24,7 @@ public class Q22GenerateParentheses {
 
     private void getParenthesis(String str, int left, int right) {
         //括号都用完了
+
         if (left == 0 && right == 0) {
             res.add(str);
             return;
