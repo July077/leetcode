@@ -18,11 +18,7 @@ public class Q84柱状图中最大的矩形 {
 
         // 原数组左右各添加一个0
         int[] newHeights = new int[heights.length + 2];
-        newHeights[0] = 0;
-        newHeights[newHeights.length - 1] = 0;
-        for (int i = 1; i < heights.length + 1; i++) {
-            newHeights[i] = heights[i - 1];
-        }
+        System.arraycopy(heights, 0, newHeights, 1, heights.length);
 
         //开始遍历
         for (int i = 0; i < newHeights.length; i++) {
@@ -36,9 +32,8 @@ public class Q84柱状图中最大的矩形 {
                 // 栈顶元素弹出后，新的栈顶元素就是左侧边界
                 int leftIndex = stack.peek();
                 // 右侧边界就是当前元素的索引
-                int rightIndex = i;
                 // 计算矩形宽度
-                int currentWidth = rightIndex - leftIndex - 1;
+                int currentWidth = i - leftIndex - 1;
 
                 // 计算面积
                 res = Math.max(res, currentWidth * currentHeight);
