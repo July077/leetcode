@@ -1,3 +1,5 @@
+import common.ListNode;
+
 /**
  * 92. 反转链表 II
  * 给你单链表的头指针 head 和两个整数left 和 right ，其中left <= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。
@@ -37,21 +39,4 @@ public class Q92反转链表II {
 
     }
 
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 }

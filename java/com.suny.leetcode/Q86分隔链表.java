@@ -1,3 +1,5 @@
+import common.ListNode;
+
 /**
  * 86. 分隔链表
  * <p>
@@ -70,20 +72,4 @@ public class Q86分隔链表 {
     }
 
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 }

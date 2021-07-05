@@ -1,3 +1,5 @@
+import common.ListNode;
+
 /**
  * 82. 删除排序链表中的重复元素 II
  * 存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。
@@ -36,23 +38,6 @@ public class Q82删除排序链表中的重复元素II {
 
         return head;
 
-    }
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 
 }

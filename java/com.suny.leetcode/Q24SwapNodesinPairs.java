@@ -1,3 +1,5 @@
+import common.ListNode;
+
 /**
  * 24. 两两交换链表中的节点
  * <p>
@@ -49,21 +51,4 @@ public class Q24SwapNodesinPairs {
         return dummy.next;
     }
 
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 }
