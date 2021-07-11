@@ -13,6 +13,29 @@
 public class Q123买卖股票的最佳时机III {
 
     public int maxProfit(int[] prices) {
+        int fstBuy = Integer.MIN_VALUE;
+        int fstSell = 0;
+        int secBuy = Integer.MIN_VALUE;
+        int secsell = 0;
+
+        for (int i = 0; i < prices.length; i++) {
+            int price = prices[i];
+            // 第一次买 -price
+            fstBuy = Math.max(fstBuy, -price);
+            // 第一次卖 fstbuy + price
+            fstSell = Math.max(fstSell, fstBuy + price);
+            // 第一次卖了买  fstsell - price
+            secBuy = Math.max(secBuy, fstSell - price);
+            // 第二次卖了现在 卖  secbuy + price
+            secsell = Math.max(secsell, secBuy + price);
+        }
+
+        return secsell;
+
+    }
+
+
+    public int maxProfit0(int[] prices) {
         int dp0 = 0;  // 一直不买
         int dp1 = -prices[0];  // 到最后买入了一笔
         int dp2 = Integer.MIN_VALUE; // 到最后买了一笔,卖出一笔
