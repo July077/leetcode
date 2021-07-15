@@ -6,6 +6,7 @@ package common;
  */
 public class Node {
     public int val;
+    public Node random;
     public Node left;
     public Node right;
     public Node next;
