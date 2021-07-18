@@ -1,5 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Set;
 
 /**
  * 150. 逆波兰表达式求值
@@ -21,39 +22,42 @@ import java.util.Deque;
  */
 public class Q150逆波兰表达式求值 {
 
+    private static final Set<String> TOKENS = Set.of("+", "-", "*", "/");
+
     public int evalRPN(String[] tokens) {
         Deque<Integer> deque = new ArrayDeque<>();
         for (String token : tokens) {
             if (isNumber(token)) {
-                deque.push(Integer.valueOf(token));
+                deque.addLast(Integer.valueOf(token));
             } else {
-                Integer num1 = deque.pop();
-                Integer num2 = deque.pop();
+                Integer num1 = deque.pollLast();
+                Integer num2 = deque.pollLast();
                 switch (token) {
                     case "+":
-                        deque.push(num1 + num2);
+                        deque.addLast(num1 + num2);
                         break;
                     case "-":
-                        deque.push(num1 - num2);
+                        deque.addLast(num1 - num2);
                         break;
                     case "*":
-                        deque.push(num1 * num2);
+                        deque.addLast(num1 * num2);
                         break;
                     case "/":
-                        deque.push(num1 / num2);
+                        deque.addLast(num1 / num2);
                         break;
                     default:
+                        deque.addLast(Integer.valueOf(token));
                         break;
                 }
             }
         }
 
-        return deque.pop();
+        return deque.pollLast();
 
     }
 
     public boolean isNumber(String token) {
-        return !("+".equals(token) || "-".equals(token) || "*".equals(token) || "/".equals(token));
+        return !TOKENS.contains(token);
     }
 
 }
