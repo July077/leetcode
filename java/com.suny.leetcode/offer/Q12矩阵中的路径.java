@@ -28,15 +28,26 @@ public class Q12矩阵中的路径 {
         return false;
     }
 
+    /**
+     * @param board 网格
+     * @param word  待匹配的字符串
+     * @param i     行
+     * @param j     列
+     * @param k     当前匹配到字符串的位置
+     * @return
+     */
     private boolean dfs(char[][] board, char[] word, int i, int j, int k) {
+        // 防止下标越界、 或者字符串不匹配、直接返回，称为剪枝
         if (i >= board.length || i < 0 || j >= board[0].length || j < 0 || board[i][j] != word[k]) {
             return false;
         }
 
+        // 全匹配中
         if (k == word.length - 1) {
             return true;
         }
 
+        // 充当标记访问数组
         board[i][j] = '\0';
         final int next = k + 1;
         boolean res = dfs(board, word, i + 1, j, next) // 往右边搜
@@ -44,6 +55,7 @@ public class Q12矩阵中的路径 {
                 || dfs(board, word, i, j + 1, next) // 往上面搜
                 || dfs(board, word, i, j - 1, next); // 往下面搜
 
+        // 还原选择
         board[i][j] = word[k];
         return res;
     }
