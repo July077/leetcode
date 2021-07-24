@@ -141,3 +141,5 @@ cython_debug/
 
 /.idea/
 /tool/
+/out/production/leetcode/
+/leetcode.iml
