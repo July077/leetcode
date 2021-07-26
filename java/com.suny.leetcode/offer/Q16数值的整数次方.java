@@ -43,7 +43,7 @@ public class Q16数值的整数次方 {
                 res = res * x;
             }
             x = x * x;
-            b >>= 1;
+            b = b >> 1;
         }
 
         return res;
