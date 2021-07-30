@@ -2,8 +2,10 @@ package offer;
 
 import common.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 /**
@@ -29,6 +31,41 @@ import java.util.stream.Collectors;
  * @date 2021-07-30 12:20
  */
 public class Q32I从上到下打印二叉树 {
+
+    public int[] bfs(TreeNode root) {
+        if (root == null) {
+            return new int[0];
+        }
+
+        List<Integer> res = new ArrayList<>();
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            final int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                final TreeNode poll = queue.poll();
+                if (poll == null) {
+                    continue;
+                }
+                res.add(poll.val);
+
+                if (poll.left != null) {
+                    queue.add(poll.left);
+                }
+
+                if (poll.right != null) {
+                    queue.add(poll.right);
+                }
+            }
+
+        }
+
+        return res.stream().mapToInt(Integer::intValue).toArray();
+
+    }
+
+
     private List<List<Integer>> res = new ArrayList<>();
 
     public int[] levelOrder(TreeNode root) {
