@@ -35,6 +35,30 @@ import java.util.Queue;
  */
 public class Q32II从上到下打印二叉树II {
 
+    List<List<Integer>> r;
+
+    public List<List<Integer>> levelOrder0(TreeNode root) {
+        r = new ArrayList<>();
+        dfs(0, root);
+        return r;
+    }
+
+    private void dfs(int depth, TreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        if (r.size() == depth) {
+            r.add(new ArrayList<>());
+        }
+
+        r.get(depth).add(node.val);
+        dfs(depth + 1, node.left);
+        dfs(depth + 1, node.right);
+
+    }
+
+
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
