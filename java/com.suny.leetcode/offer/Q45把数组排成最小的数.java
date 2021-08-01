@@ -1,5 +1,8 @@
 package offer;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 /**
  * 剑指 Offer 45. 把数组排成最小的数
  * <p>
@@ -21,6 +24,10 @@ package offer;
  * @date 2021/8/1 下午10:03
  */
 public class Q45把数组排成最小的数 {
+
+    public String minNumber0(int[] nums) {
+        return IntStream.of(nums).mapToObj(String::valueOf).sorted((o1, o2) -> (o1 + o2).compareTo((o2 + o1))).collect(Collectors.joining());
+    }
 
     public String minNumber(int[] nums) {
         String[] strings = new String[nums.length];
