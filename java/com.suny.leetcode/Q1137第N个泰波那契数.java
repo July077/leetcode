@@ -22,6 +22,22 @@
  */
 public class Q1137第N个泰波那契数 {
 
+    private static int[] cache = new int[40];
+
+    static {
+        cache[0] = 0;
+        cache[1] = 1;
+        cache[2] = 1;
+
+        for (int i = 3; i < cache.length; i++) {
+            cache[i] = cache[i - 1] + cache[i - 2] + cache[i - 3];
+        }
+    }
+
+    public int tribonacci0(int n) {
+        return cache[n];
+    }
+
     public int tribonacci(int n) {
         if (n == 0) {
             return 0;
