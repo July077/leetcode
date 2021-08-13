@@ -1,23 +1,19 @@
-package offer;
-
 /**
- * 剑指 Offer 43. 1～n 整数中 1 出现的次数
- * 输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。
+ * 233. 数字 1 的个数
  * <p>
- * 例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，1一共出现了5次。
+ * 给定一个整数 n，计算所有小于等于 n 的非负整数中数字 1 出现的个数。
  * <p>
- * 
+ * <p>
  * <p>
  * 示例 1：
  * <p>
- * 输入：n = 12
- * 输出：5
- * <p>
+ * 输入：n = 13
+ * 输出：6
  *
  * @author sunjianrong
- * @date 2021-08-13 10:08
+ * @date 2021-08-13 9:18
  */
-public class Q43n整数中1出现的次数 {
+public class Q233数字1的个数 {
 
     public int countDigitOne(int n) {
         int digit = 1;
@@ -47,5 +43,18 @@ public class Q43n整数中1出现的次数 {
         return res;
     }
 
+    public int countDigitOne0(int n) {
+        int cnt = 0;
+        for (int i = 0; i <= n; i++) {
+            for (int j = i; j > 0; j = j / 10) {
+                if (j % 10 == 1) {
+                    ++cnt;
+                }
 
+            }
+
+        }
+        return cnt;
+
+    }
 }
