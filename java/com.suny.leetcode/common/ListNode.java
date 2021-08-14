@@ -20,4 +20,13 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    public void printNode() {
+        ListNode next = this;
+        while (next != null) {
+            System.out.print(next.val + " ");
+            next = next.next;
+        }
+        System.out.println();
+    }
 }
