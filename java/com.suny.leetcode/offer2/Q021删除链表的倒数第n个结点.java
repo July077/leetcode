@@ -2,6 +2,8 @@ package offer2;
 
 import common.ListNode;
 
+import java.util.Stack;
+
 /**
  * 剑指 Offer II 021. 删除链表的倒数第 n 个结点
  * 给定一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
@@ -12,6 +14,47 @@ import common.ListNode;
  * @date 2021/8/14 下午8:58
  */
 public class Q021删除链表的倒数第n个结点 {
+
+    public ListNode removeNthFromEnd1(ListNode head, int n) {
+        ListNode dummy = new ListNode(0, head);
+        ListNode first = head;
+        ListNode second = dummy;
+        for (int i = 0; i < n; i++) {
+            first = first.next;
+        }
+
+        // 开始一起走
+        while (first != null) {
+            first = first.next;
+            second = second.next;
+        }
+
+        second.next = second.next.next;
+        return dummy.next;
+    }
+
+
+    // 使用栈
+    public ListNode removeNthFromEnd0(ListNode head, int n) {
+        ListNode dummy = new ListNode(0, head);
+
+        Stack<ListNode> stack = new Stack<>();
+        ListNode curr = dummy;
+        while (curr != null) {
+            stack.push(curr);
+            curr = curr.next;
+        }
+
+        // 开始弹出几个数量
+        for (int i = 0; i < n; i++) {
+            stack.pop();
+        }
+
+        // 弹出栈顶元素，该元素就是删除节点前一个元素
+        ListNode peek = stack.peek();
+        peek.next = peek.next.next;
+        return dummy.next;
+    }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null || head.next == null) {
