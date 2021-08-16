@@ -11,6 +11,11 @@ public class Node {
     public Node right;
     public Node next;
 
+
+
+    public Node prev;
+    public Node child;
+
     public Node() {
     }
 
@@ -24,5 +29,8 @@ public class Node {
         this.right = right;
         this.next = next;
     }
+
+
+
 
 }
