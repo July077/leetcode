@@ -15,6 +15,10 @@ public class TrieNode {
 
     public String word;
 
+    public boolean isEnd;
+
+    public int value;
+
     public TrieNode() {
         children = new TrieNode[26];
     }
