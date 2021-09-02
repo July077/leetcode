@@ -3,7 +3,7 @@ package offer2;
 import common.ListNode;
 
 /**
- * 剑指 Offer II 077. 链表排序
+ *
  * <p>
  * 给定链表的头结点head，请将其按 升序 排列并返回 排序后的链表 。
  * <p>
