@@ -1,8 +1,6 @@
 package weeklycontest;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 5863. 统计特殊四元组
@@ -59,22 +57,31 @@ public class Q5863统计特殊四元组 {
     }
 
 
-    private List<List<Integer>> res = new ArrayList<>();
-    private List<Integer> path = new ArrayList<>();
+    private int count;
 
     public int countQuadruplets(int[] nums) {
         if (nums == null || nums.length < 4) {
             return 0;
         }
 
-        Arrays.sort(nums);
-
-        dfs(nums, 0);
-        return res.size();
+        dfs(nums, 0, 0, 0);
+        return count;
     }
 
-    private void dfs(int[] nums, int begin) {
-        if (path.size() == 4) {
+    private void dfs(int[] nums, int depth, int begin, int sum) {
+        if (depth == 3) {
+            for (int i = begin; i < nums.length; i++) {
+                if (sum == nums[i]) {
+                    count++;
+                }
+            }
+            return;
+        }
+
+        for (int i = begin; i < nums.length - 1; i++) {
+            sum += nums[i];
+            dfs(nums, depth + 1, i + 1, sum);
+            sum -= nums[i];
         }
     }
 
