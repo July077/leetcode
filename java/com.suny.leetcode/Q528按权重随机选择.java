@@ -43,7 +43,7 @@ public class Q528按权重随机选择 {
         int r = n - 1;
 
         while (l < r) {
-            int mid = l + (r - l) >> 1;
+            int mid = l + r >> 1;
             if (sum[mid] >= t) {
                 r = mid;
             } else {
