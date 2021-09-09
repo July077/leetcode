@@ -1,5 +1,7 @@
 package offer2;
 
+import java.util.Arrays;
+
 /**
  * 剑指 Offer II 098. 路径的数目
  * 一个机器人位于一个 m x n网格的左上角 （起始点在下图中标记为 “Start” ）。
@@ -35,18 +37,28 @@ public class Q098路径的数目 {
 
 
     public int uniquePaths1(int m, int n) {
-        return dfs(1, 1, m, n);
+        int[][] cache = new int[m + 1][n + 1];
+        for (int i = 0; i < m + 1; i++) {
+            Arrays.fill(cache[i], -1);
+        }
+
+        return dfs(cache, 1, 1, m, n);
     }
 
-    private int dfs(int x, int y, int m, int n) {
+    private int dfs(int[][] cache, int x, int y, int m, int n) {
         if (x > m || y > n) {
             return 0;
+        }
+        if (cache[x][y] != -1) {
+            return cache[x][y];
         }
 
         if (x == m && y == n) {
             return 1;
         }
 
-        return dfs(x + 1, y, m, n) + dfs(x, y + 1, m, n);
+        final int i = dfs(cache, x + 1, y, m, n) + dfs(cache, x, y + 1, m, n);
+        cache[x][y] = i;
+        return i;
     }
 }
