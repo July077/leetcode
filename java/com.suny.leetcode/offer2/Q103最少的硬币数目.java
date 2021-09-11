@@ -1,5 +1,7 @@
 package offer2;
 
+import java.util.Arrays;
+
 /**
  * 剑指 Offer II 103. 最少的硬币数目
  * <p>
@@ -28,6 +30,24 @@ package offer2;
  * @date 2021/9/11 下午2:59
  */
 public class Q103最少的硬币数目 {
+
+    public int coinChange1(int[] coins, int amount) {
+        int max = Integer.MAX_VALUE;
+        int[] dp = new int[amount + 1];
+        // 初始化 dp
+        Arrays.fill(dp, max);
+
+        dp[0] = 0;
+        for (int i = 0; i < coins.length; i++) {
+            for (int j = coins[i]; j <= amount; j++) {
+                if (dp[j - coins[i]] != max) {
+                    dp[j] = Math.min(dp[j], dp[j - coins[i]] + 1);
+                }
+            }
+        }
+        return dp[amount] == max ? -1 : dp[amount];
+
+    }
 
     int res = Integer.MAX_VALUE;
     int[] memo;
