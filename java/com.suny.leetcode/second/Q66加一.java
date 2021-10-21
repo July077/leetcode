@@ -35,8 +35,9 @@ public class Q66加一 {
             if (digits[i] != 9) {
                 digits[i]++;
                 return digits;
+            }else {
+                digits[i] = 0;
             }
-            digits[i] = 0;
         }
 
         int[] temp = new int[length + 1];
