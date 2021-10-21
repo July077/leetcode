@@ -1,5 +1,7 @@
 import common.TreeNode;
 
+import java.util.LinkedList;
+
 /**
  * 226. 翻转二叉树
  * 翻转一棵二叉树。
@@ -39,6 +41,33 @@ public class Q226翻转二叉树 {
 
         invertTree(root.left);
         invertTree(root.right);
+        return root;
+    }
+
+
+    public TreeNode invertTree2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        LinkedList<TreeNode> list = new LinkedList<>();
+        list.add(root);
+
+        while (!list.isEmpty()) {
+            final TreeNode poll = list.poll();
+
+            final TreeNode right = poll.right;
+            poll.right = poll.left;
+            poll.left = right;
+
+            if (poll.left != null) {
+                list.add(poll.left);
+            }
+
+            if (poll.right != null) {
+                list.add(poll.right);
+            }
+        }
         return root;
     }
 
