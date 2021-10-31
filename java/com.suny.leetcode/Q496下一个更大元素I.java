@@ -39,9 +39,12 @@ public class Q496下一个更大元素I {
 
         for (int num : nums2) {
             while (!stack.isEmpty() && stack.peek() < num) {
+                final Integer peek = stack.peek();
                 map.put(stack.pop(), num);
+                System.out.println("map中放入" + peek + ">>>" + num);
             }
             stack.push(num);
+            System.out.println("压栈 " + num);
         }
 
         int[] res = new int[nums1.length];
@@ -79,7 +82,7 @@ public class Q496下一个更大元素I {
     public static void main(String[] args) {
         int[] nums1 = new int[]{4, 1, 2};
         int[] nums2 = new int[]{1, 3, 4, 2};
-        System.out.println(Arrays.toString(new Q496下一个更大元素I().nextGreaterElement(nums1, nums2)));
+        System.out.println(Arrays.toString(new Q496下一个更大元素I().nextGreaterElement1(nums1, nums2)));
     }
 
 }
