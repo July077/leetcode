@@ -1,5 +1,7 @@
 package common;
 
+import java.util.List;
+
 /**
  * @author sunjianrong
  * @date 2021-07-08 12:13
@@ -15,6 +17,7 @@ public class Node {
 
     public Node prev;
     public Node child;
+    public List<Node> children;
 
     public Node() {
     }
@@ -28,6 +31,12 @@ public class Node {
         this.left = left;
         this.right = right;
         this.next = next;
+    }
+
+
+    public Node(int v, List<Node> children) {
+        val = v;
+        children = children;
     }
 
 
