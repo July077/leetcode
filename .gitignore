@@ -143,3 +143,7 @@ cython_debug/
 /tool/
 /out/production/leetcode/
 /leetcode.iml
+
+
+/cpp/cmake-build-debug/
+/cpp/.idea
