@@ -22,4 +22,15 @@
 
 
 class Solution:
-    def repeatedStringMatch(self, a: str, b: str) -> int:
+    def repeatedStringMatch(self, haystack: str, needle: str) -> int:
+        setA = set(haystack)
+        setB = set(needle)
+
+        if setA & setB != setB:
+            return -1
+        times = math.ceil(len(needle) / len(haystack))
+        if needle in haystack * times:
+            return times
+        if needle in haystack * (times + 1):
+            return times + 1
+        return -1
