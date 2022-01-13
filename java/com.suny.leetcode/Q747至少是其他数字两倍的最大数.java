@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * 747. 至少是其他数字两倍的最大数
  * 给你一个整数数组 nums ，其中总是存在 唯一的 一个最大整数 。
@@ -30,31 +26,22 @@ import java.util.Map;
 public class Q747至少是其他数字两倍的最大数 {
 
     public int dominantIndex(int[] nums) {
-        if (nums == null || nums.length < 3) {
-            return -1;
-        }
+        int max1 = -1;
+        int max2 = -1;
+        int index = 0;
 
-        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
-        }
-
-        Arrays.sort(nums);
-
-        int max = Integer.MIN_VALUE;
-
-        for (int i = 2; i < nums.length; i++) {
-            if (nums[i] > nums[i - 1] * 2 && nums[i] > nums[i - 2] * 2) {
-                max = Math.max(max, nums[i]);
+            if (nums[i] > max1) {
+                max2 = max1;
+                max1 = nums[i];
+                index = i;
+            } else if (nums[i] > max2) {
+                max2 = nums[i];
             }
+
         }
 
-        if (map.get(max) != null) {
-            return map.get(max);
-        }
-
-        return -1;
-
+        return max1 > max2 * 2 ? index : -1;
     }
 
     public static void main(String[] args) {
