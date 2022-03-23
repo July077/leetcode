@@ -1,5 +1,6 @@
 package offer2;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
@@ -30,7 +31,11 @@ import java.util.Stack;
 public class Q036后缀表达式 {
 
     public int evalRPN(String[] tokens) {
-        final Set<String> sets = Set.of("+", "-", "*", "/");
+        final Set<String> sets =  new HashSet<>();
+        sets.add("+");
+        sets.add("-");
+        sets.add("*");
+        sets.add("/");
         Stack<String> stack = new Stack<>();
         for (String token : tokens) {
             if (sets.contains(token)) {

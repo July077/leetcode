@@ -30,10 +30,7 @@ public class Q1765地图中的最高点 {
     int[][] dirs = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 
     public int[][] highestPeak(int[][] isWater) {
-        
-        
-
-
+        return null;
     }
 
 }

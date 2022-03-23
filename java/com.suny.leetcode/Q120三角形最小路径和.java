@@ -90,9 +90,9 @@ public class Q120三角形最小路径和 {
 
 
         List<List<Integer>> param = new ArrayList<>();
-        param.add(List.of(-1));
-        param.add(List.of(2, 3));
-        param.add(List.of(1, -1, -3));
+        //param.add(List.of(-1));
+        //param.add(List.of(2, 3));
+        //param.add(List.of(1, -1, -3));
 
         final Q120三角形最小路径和 q120 = new Q120三角形最小路径和();
         final int minimumTotal = q120.minimumTotal(param);
