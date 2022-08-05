@@ -1,3 +1,5 @@
+package offer1second;
+
 import java.util.LinkedList;
 
 /**

@@ -1,5 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,9 +23,19 @@ import java.util.Set;
  */
 public class Q150逆波兰表达式求值 {
 
-    private static final Set<String> TOKENS = Set.of("+", "-", "*", "/");
+    //private static final Set<String> TOKENS = Set.of("+", "-", "*", "/");
+    final static Set<String> TOKENS = new HashSet<>();
+
+    static {
+        TOKENS.add("+");
+        TOKENS.add("-");
+        TOKENS.add("*");
+        TOKENS.add("/");
+    }
 
     public int evalRPN(String[] tokens) {
+
+
         Deque<Integer> deque = new ArrayDeque<>();
         for (String token : tokens) {
             if (isNumber(token)) {
